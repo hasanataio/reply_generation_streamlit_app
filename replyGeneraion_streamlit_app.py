@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 
 # Streamlit app
-st.title("Personalized Content Generator")
+st.title("Review Reply Generator")
 
 # API URL
 api_url = 'http://44.231.228.32:8023/generate_personalized_response'  # Change this to your FastAPI endpoint
