@@ -5,12 +5,13 @@ import requests
 st.title("Review Reply Generator")
 
 # API URL
-api_url = 'http://44.231.228.32:8023/generate_personalized_response'  # Change this to your FastAPI endpoint
+api_url = 'http://44.231.228.32:8023/generate_personalized_response_testing'  # Change this to your FastAPI endpoint
 
 # Input fields for user to enter data
 st.subheader("Enter the Details Below:")
 
 auth_token = st.text_input("Authorization Token", type="password")  # Token input, hidden for security
+prompt = st.text_area("Prompt!", "")
 review = st.text_area("Review", "")
 ratings = st.number_input("Ratings", min_value=0, max_value=5, value=0)
 length = st.selectbox("Length", ["short", "long"])
@@ -28,7 +29,8 @@ if st.button("Generate Content"):
         "food_items": food_items,
         "customer_name": customer_name,
         "additional_context": additional_context,
-          "previous_replies": []
+          "previous_replies": [],
+          "prompt":prompt
     }
 
     # Setting up the headers with the authorization token
